@@ -1,3 +1,7 @@
+
+// All informations concerning pointer basics: values, addresses, sizeof
+// https://overiq.com/c-programming-101/pointer-basics-in-c/
+
 #include <stdio.h>
 
 int main()
@@ -18,13 +22,13 @@ int main()
     printf(" Address of dp = %u\n", &dp); // address of pointer dp
     
     /*
-     *   memory occupied by pointer variables
+     *   Memory occupied by pointer variables
      *   is same regardless of its base type
      */
     printf("\n\n");
     printf(" Size of pointer ip = %d\n", sizeof(ip));
     printf(" Size of pointer dp = %d\n", sizeof(dp));
 
-    // signal to operating system that program ran fine
+    // Signal to operating system that program ran fine
     return 0;
 }
