@@ -14,15 +14,15 @@ int main()
     printf(" Value of i = %d\n", i);
 
     printf("\n\n");
-    printf(" Address of i = %u\n", &i);
-    printf(" Value of ip = %u\n", ip);
+    printf(" Address of i = %p\n", &i);
+    printf(" Value of ip = %p\n", ip);
 
     printf("\n\n");
-    printf(" Address of ip = %u\n", &ip);
-    printf(" Value of ipp = %u\n", ipp);
+    printf(" Address of ip = %p\n", &ip);
+    printf(" Value of ipp = %p\n", ipp);
 
     printf("\n\n");
-    printf(" Value of *ipp = value of ip = address of i = %u\n", *ipp);
+    printf(" Value of *ipp = value of ip = address of i = %p\n", *ipp);
     printf(" Value of **ipp = value of i = %d\n", **ipp);
 
     // Signal to operating system that program ran fine
