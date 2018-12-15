@@ -51,6 +51,19 @@ int main()
     printf(" d2p - d1p = %d\n", d2p-d1p);
     printf(" d1p - d2p = %d\n", d1p-d2p);
 
+    // Functions, which show pointer arithmetic between two pointers of base type "char"
+    char c1='a', *c1p=&c1;
+    char c2='a', *c2p=&c2;
+
+    printf("\n\n");
+    printf(" Value of c1p (address of c1) = %u\n", c1p);
+    printf(" Value of c2p (address of c2) = %u\n", c2p);
+
+    printf("\n\n");
+    printf(" c2p - c1p = %d\n", c2p-c1p);
+    printf(" c1p - c2p = %d\n", c1p-c2p);
+
+
     // Signal to operating system that program ran fine
     return 0;
 }
