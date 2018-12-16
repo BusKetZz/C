@@ -46,7 +46,7 @@ int main()
     printf(" Value of i1p (address of i1) = %lu\n", i1p);
     printf(" Value of i2p (address of i2) = %lu\n", i2p);
 
-    printf("\n\n");
+    printf("\n");
     printf(" i1p - i2p = %ld\n", i1p-i2p); // %ld is 'long' type format 
 
     // Functions, which show pointer arithmetic between two pointers of base type "double"
@@ -57,7 +57,7 @@ int main()
     printf(" Value of d1p (address of d1) = %lu\n", d1p);
     printf(" Value of d2p (address of d2) = %lu\n", d2p);
 
-    printf("\n\n");
+    printf("\n");
     printf(" d1p - d2p = %ld\n", d1p-d2p);
 
     // Functions, which show pointer arithmetic between two pointers of base type "char"
@@ -68,9 +68,23 @@ int main()
     printf(" Value of c1p (address of c1) = %lu\n", c1p);
     printf(" Value of c2p (address of c2) = %lu\n", c2p);
 
-    printf("\n\n");
+    printf("\n");
     printf(" c1p - c2p = %ld\n", c1p-c2p);
 
+    /*
+     * More on implicit casting
+     */
+
+    int x=300; // in binary: 00000000 00000000 00000001 00101100
+    char *k;
+    int *l;
+    
+    k = (char*)&x; // pointer 'k' casted as a base type 'char' -> points only to 1 byte (00101100)
+    l = &x; // pointer 'l' of base type 'int' -> points to all 4 bytes (00000000 00000000 00000001 00101100)
+    printf("\n\n");
+    printf(" *k(x) = %d     *l(x) = %d\n", *k, *l);
+    k = k + 1; // address casted as byse type 'char' incremented by 1 -> points to the next byte (00000001)
+    printf(" *k(x) = %d      *l(x) = %d\n", *k, *l);
 
     // Signal to operating system that program ran fine
     return 0;
