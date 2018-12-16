@@ -27,6 +27,17 @@ int main()
     printf(" Value of dp + 2 = %lu\n", dp+2);
     printf(" Value of cp + 2 = %lu\n", cp+2);
 
+    /*
+     *  Pointer arithmetic: (address1 - address2) / sizeof(type) = distance between addresses  
+     *  e.g. pointers of base type int: (3200 - 3000) / 4 = 50
+     */
+
+    printf("\n\n");
+    int *p = (int*)3200; // pointer "p" with initialized address: 3200
+    int *q = (int*)3000; // pointer "q" with initialized address: 3000
+    printf(" pointer 'p' - pointer 'q' = distance between addresses\n");
+    printf(" %d - %d = %d\n", p, q, p-q);
+
     // Functions, which show pointer arithmetic between two pointers of base type "int"
     int i1=10, *i1p=&i1;
     int i2=10, *i2p=&i2;
@@ -36,8 +47,7 @@ int main()
     printf(" Value of i2p (address of i2) = %lu\n", i2p);
 
     printf("\n\n");
-    printf(" i2p - i1p = %ld\n", i2p-i1p); // %ld is 'long' type format 
-    printf(" i1p - i2p = %ld\n", i1p-i2p);
+    printf(" i1p - i2p = %ld\n", i1p-i2p); // %ld is 'long' type format 
 
     // Functions, which show pointer arithmetic between two pointers of base type "double"
     double d1=10, *d1p=&d1;
@@ -48,7 +58,6 @@ int main()
     printf(" Value of d2p (address of d2) = %lu\n", d2p);
 
     printf("\n\n");
-    printf(" d2p - d1p = %ld\n", d2p-d1p);
     printf(" d1p - d2p = %ld\n", d1p-d2p);
 
     // Functions, which show pointer arithmetic between two pointers of base type "char"
@@ -60,7 +69,6 @@ int main()
     printf(" Value of c2p (address of c2) = %lu\n", c2p);
 
     printf("\n\n");
-    printf(" c2p - c1p = %ld\n", c2p-c1p);
     printf(" c1p - c2p = %ld\n", c1p-c2p);
 
 
