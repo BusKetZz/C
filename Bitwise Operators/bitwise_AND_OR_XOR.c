@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+void printBit(int n); // function which shows the number in binary format
+
 /*
  * Demonstration of bitwise AND operation
  * 
@@ -11,17 +13,71 @@
  */
 void bitAND()
 {
+    printf("\n Bitwise operation AND between x and y\n\n");    
     int x = 12;     // 00000000 00000000 00000000 00001100 (in binary)
+    printBit(x), printf(" = %d (in decimal)\n", x);
     int y = 7;      // 00000000 00000000 00000000 00000111 (in binary)
-    int z = x & y;
+    printBit(y), printf(" = %d (in decimal)\n", y);
+    int z = x & y;  // 00000000 00000000 00000000 00000100 (in binary)
     /*
      *      00001100
      *    & 00000111
      *      --------
      *      00000100    =  4 (in decimal)
      */
-    printf("\n Bitwise operation AND between x and y: z = x & y = %d (in decimal)\n\n", z);     
+    printBit(z), printf(" = %d (in decimal)\n", z);
+  
 } 
+
+/*
+ * Demonstration of bitwise OR operation
+ * 
+ * The output of bitwise OR is 1 if at least one corresponidng bit of two operands is 1
+ * 
+ * Denoted by: |
+ * 
+ */ 
+void bitOR()
+{
+    printf("\n Bitwise operation OR between x and y\n\n");    
+    int x = 12; // 00001100 (in binary)
+    printBit(x), printf(" = %d (in decimal)\n", x);
+    int y = 25; // 00011001 (in binary)
+    printBit(y), printf(" = %d (in decimal)\n", y);
+    int z = x | y;
+    /*
+     *      00001100
+     *    | 00011001
+     *      --------
+     *      00011101    =  29 (in decimal)
+     */
+    printBit(z), printf(" = %d (in decimal)\n", z);
+}
+
+/*
+ * Demonstration of bitwise XOR operation
+ * 
+ * The output of bitwise OR is 1 if the corresponding bits of two operands are opposite
+ * 
+ * Denoted by: ^
+ * 
+ */ 
+void bitXOR()
+{
+    printf("\n Bitwise operation XOR between x and y\n\n"); 
+    int x = 12; // 00001100 (in binary)
+    printBit(x), printf(" = %d (in decimal)\n", x);
+    int y = 25; // 00011001 (in binary)
+    printBit(y), printf(" = %d (in decimal)\n", y);
+    int z = x ^ y;
+    /*
+     *      00001100
+     *    ^ 00011001
+     *      --------
+     *      00010101    =  21 (in decimal)
+     */
+    printBit(z), printf(" = %d (in decimal)\n", z);
+}
 
 /*
  * Check if a number is odd or even without using modulo operator "%"
@@ -43,51 +99,6 @@ void odd_even()
         printf(" %d is even\n", x); 
 }
 
-/*
- * Demonstration of bitwise OR operation
- * 
- * The output of bitwise OR is 1 if at least one corresponidng bit of two operands is 1
- * 
- * Denoted by: |
- * 
- */ 
-void bitOR()
-{
-    int x = 12; // 00001100 (in binary)
-    int y = 25; // 00011001 (in binary)
-    int z = x | y;
-    /*
-     *      00001100
-     *    | 00011001
-     *      --------
-     *      00011101    =  29 (in decimal)
-     */
-    printf("\n Bitwise operation OR between x and y: z = x | y = %d (in decimal)\n\n", z);
-}
-
-/*
- * Demonstration of bitwise XOR operation
- * 
- * The output of bitwise OR is 1 if the corresponding bits of two operands are opposite
- * 
- * Denoted by: ^
- * 
- */ 
-void bitXOR()
-{
-    int x = 12; // 00001100 (in binary)
-    int y = 25; // 00011001 (in binary)
-    int z = x ^ y;
-    /*
-     *      00001100
-     *    ^ 00011001
-     *      --------
-     *      00010101    =  21 (in decimal)
-     */
-    printf("\n Bitwise operation XOR between x and y: z = x ^ y = %d (in decimal)\n\n", z);
-}
-
-
 int main()
 {
     bitAND();
@@ -96,4 +107,24 @@ int main()
 
     odd_even();
     return 0;
+}
+
+/*
+ * Program which prints the binary equivalent of a signed integer
+ */
+void printBit(int n)
+{
+    unsigned k = 1 << 31; // in binary: 10000000 00000000 00000000 00000000
+                          // k is 'unsigned' to avoid 1's when shifting to the right
+    printf(" ");
+    for(int i=0; i<sizeof(int)*8; i++)
+    {
+        if( (n & (k>>i)) == (k>>i) )
+            printf("1");
+        else
+            printf("0");
+        
+        if((i+1)%8 == 0)
+            printf(" ");
+    }
 }
