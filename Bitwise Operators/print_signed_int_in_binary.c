@@ -3,7 +3,7 @@
 /*
  * Program which prints the binary equivalent of a signed integer
  */
-void printBit(int n)
+void printBinary(int n)
 {
     unsigned k = 1 << 31; // in binary: 10000000 00000000 00000000 00000000
                           // k is 'unsigned' to avoid 1's when shifting to the right

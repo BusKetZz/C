@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void printBit(int n); // function which shows the number in binary format
+void printBinary(int n); // function which shows the number in binary format
 
 /*
  * Demonstration of bitwise AND operation
@@ -15,9 +15,9 @@ void bitAND()
 {
     printf("\n Bitwise operation AND between x and y\n\n");    
     int x = 12;     // 00000000 00000000 00000000 00001100 (in binary)
-    printBit(x), printf(" = %d (in decimal)\n", x);
+    printBinary(x), printf(" = %d (in decimal)\n", x);
     int y = 7;      // 00000000 00000000 00000000 00000111 (in binary)
-    printBit(y), printf(" = %d (in decimal)\n", y);
+    printBinary(y), printf(" = %d (in decimal)\n", y);
     int z = x & y;  // 00000000 00000000 00000000 00000100 (in binary)
     /*
      *      00001100
@@ -25,7 +25,7 @@ void bitAND()
      *      --------
      *      00000100    =  4 (in decimal)
      */
-    printBit(z), printf(" = %d (in decimal)\n", z);
+    printBinary(z), printf(" = %d (in decimal)\n", z);
   
 } 
 
@@ -41,9 +41,9 @@ void bitOR()
 {
     printf("\n Bitwise operation OR between x and y\n\n");    
     int x = 12; // 00001100 (in binary)
-    printBit(x), printf(" = %d (in decimal)\n", x);
+    printBinary(x), printf(" = %d (in decimal)\n", x);
     int y = 25; // 00011001 (in binary)
-    printBit(y), printf(" = %d (in decimal)\n", y);
+    printBinary(y), printf(" = %d (in decimal)\n", y);
     int z = x | y;
     /*
      *      00001100
@@ -51,7 +51,7 @@ void bitOR()
      *      --------
      *      00011101    =  29 (in decimal)
      */
-    printBit(z), printf(" = %d (in decimal)\n", z);
+    printBinary(z), printf(" = %d (in decimal)\n", z);
 }
 
 /*
@@ -66,9 +66,9 @@ void bitXOR()
 {
     printf("\n Bitwise operation XOR between x and y\n\n"); 
     int x = 12; // 00001100 (in binary)
-    printBit(x), printf(" = %d (in decimal)\n", x);
+    printBinary(x), printf(" = %d (in decimal)\n", x);
     int y = 25; // 00011001 (in binary)
-    printBit(y), printf(" = %d (in decimal)\n", y);
+    printBinary(y), printf(" = %d (in decimal)\n", y);
     int z = x ^ y;
     /*
      *      00001100
@@ -76,7 +76,7 @@ void bitXOR()
      *      --------
      *      00010101    =  21 (in decimal)
      */
-    printBit(z), printf(" = %d (in decimal)\n", z);
+    printBinary(z), printf(" = %d (in decimal)\n", z);
 }
 
 /*
@@ -112,7 +112,7 @@ int main()
 /*
  * Program which prints the binary equivalent of a signed integer
  */
-void printBit(int n)
+void printBinary(int n)
 {
     unsigned k = 1 << 31; // in binary: 10000000 00000000 00000000 00000000
                           // k is 'unsigned' to avoid 1's when shifting to the right
