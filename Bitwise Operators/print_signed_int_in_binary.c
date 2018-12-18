@@ -3,14 +3,11 @@
 /*
  * Program which prints the binary equivalent of a signed integer
  */
-int main()
+void printBit(int n)
 {
-    int n; // n stores a number given by the user
-    printf("\n Enter a number: ");
-    scanf(" %d", &n);
-
     unsigned k = 1 << 31; // in binary: 10000000 00000000 00000000 00000000
                           // k is 'unsigned' to avoid 1's when shifting to the right
+    printf(" ");
     for(int i=0; i<sizeof(int)*8; i++)
     {
         if( (n & (k>>i)) == (k>>i) )
@@ -23,6 +20,15 @@ int main()
     }
     printf("\n");
 
-    // Signal to operating system that program ran fine
-    return 0;
 } 
+
+int main()
+{   
+    int n; // 'n' stores the number given in decimal
+    printf("\n Enter a number: ");
+    scanf(" %d", &n);
+    
+    printBit(n);
+
+    return 0;
+}
