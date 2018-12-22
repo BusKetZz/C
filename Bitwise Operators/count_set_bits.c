@@ -13,8 +13,8 @@ int main()
     printf("\n Enter a number: ");
     scanf(" %d", &x);
 
-    int count=0; // variable count stores the number of set bits
-    for(int i=0; i<sizeof(int)*8; i++) // sizeof(int)*8 = 4*8 = 32 [bits]
+    int i, count; // variable count stores the number of set bits
+    for(i=0, count=0; i<sizeof(int)*8; i++) // sizeof(int)*8 = 4*8 = 32 [bits]
         if( (x & (1 << i)) == 1 << i )
             count++;
 

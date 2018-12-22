@@ -28,7 +28,7 @@ int main()
     printf("\n Enter a number: ");
     scanf(" %d", &n);
     
-    printBit(n);
+    printBinary(n);
 
     return 0;
 }
