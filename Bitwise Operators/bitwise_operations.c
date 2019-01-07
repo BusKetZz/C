@@ -66,7 +66,7 @@ int chooseBit(int value, int which)
  *  
  */
 
-int countBit(int value, int bit_value)
+int countBits(int value, int bit_value)
 {
     int count = 0;                            // variable 'count' stores the number of 0's or 1's
                                               // initialized with zero for proper count procedure
@@ -203,7 +203,7 @@ void chooseBitsRange(int value, int left, int right)
  * 
  */
 
-int changeAdjacentBits(int value)
+int swapAdjacentBits(int value)
 {
     bits1.bit_field = value; // first bit field is assigned with the value entered by the user
 
@@ -240,7 +240,7 @@ int changeAdjacentBits(int value)
  *     function returns: 3
  */
 
-int howManyIdenticalBits(int val1, int val2)
+int countIdenticalBits(int val1, int val2)
 {
     // bit fields: 'bits1' and 'bits2' are assigned with the values inputted by the user
     bits1.bit_field = val1;
@@ -276,7 +276,7 @@ int main()
         printf("\n ******************************************\n");
         printf(" ****** LIST OF AVAILABLE OPERATIONS ******\n");
         printf(" 1. Choose bit.\n");
-        printf(" 2. Count bit. \n");
+        printf(" 2. Count bits. \n");
         printf(" 3. Count longest substring.\n");
         printf(" 4. Set chosen bit.\n");
         printf(" 5. Choose bit range.\n");
@@ -301,6 +301,8 @@ int main()
                                                             // bit number must be between 0 and 32 for integer type
             int bit = chooseBit(value, which);              // control goes to the chooseBit function
             printf("\n Bit nr. %d from value %d (decimal): %d (binary)\n", which, value, bit);
+            printf("\n Binary format of %d: ", value);
+            printBinary(value);
         }
 
         // function goes to the operation nr.2 which counts the 0's or 1's in binary format of a given value
@@ -315,9 +317,11 @@ int main()
                 scanf(" %d", &bit_value);
             } while (bit_value < 0 || bit_value > 1); // do_while controls proper input of 'bit_value'
                                                       // it can be only 0 or 1
-            int count = countBit(value, bit_value);   // control goes into countBit function
+            int count = countBits(value, bit_value);   // control goes into countBitss function
                                                       // returned value is stored into 'count' variable
             printf("\n Number of %d's in the value = %d (decimal) is: %d\n", bit_value, value, count);
+            printf("\n Binary format of %d: ", value);
+            printBinary(value);
         }
 
         // function goes to the operation nr.3 which counts the longest substring of 0'1 or 1's
@@ -337,6 +341,8 @@ int main()
             substring = longestSubstring(value, bit_value);
 
             printf("\n The longest substring of %d's in the given number = %d\n", bit_value, substring);
+            printf("\n Binary format of %d: ", value);
+            printBinary(value);
         }
 
         // function goes to the operation nr.4 which allows to set a chosen bit and print the new value
@@ -362,6 +368,11 @@ int main()
             new_value = setBit(value, which, bit_value);
 
             printf("\n Value before change: %d\t Value after change: %d\n", value, new_value);
+            printf("\n Binary format of %d: ", value);
+            printBinary(value);
+            printf("\n");
+            printf("\n Binary format of %d: ", new_value);
+            printBinary(new_value);
         }
 
         // function goes to the operation nr.5 which prints bits in the selected range
@@ -392,7 +403,7 @@ int main()
             scanf(" %d", &value);
 
             // 'bits2' (bit field) is assigned with the returned value from the function
-            bits2.bit_field = changeAdjacentBits(value);
+            bits2.bit_field = swapAdjacentBits(value);
 
             printf("\n %d (decimal)\n", bits2.bit_field);
             printBinary(bits2.bit_field); // 'printBinary' prints number in binary format
@@ -409,8 +420,8 @@ int main()
             printf("\n Enter second number: ");
             scanf(" %d", &val2);
 
-            // 'count' stores the return value from the function 'howManyIdenticalBits'
-            count = howManyIdenticalBits(val1, val2);
+            // 'count' stores the return value from the function 'countIdenticalBits'
+            count = countIdenticalBits(val1, val2);
 
             // output is printed into console
             printf("\n %d (decimal)\n", bits1.bit_field);
