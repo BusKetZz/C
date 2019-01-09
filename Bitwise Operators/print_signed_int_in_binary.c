@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /*
- * Program which prints the binary equivalent of a signed integer
+ * Function which prints the binary equivalent of a signed integer
  */
 void printBinary(int n)
 {
