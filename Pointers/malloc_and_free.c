@@ -26,7 +26,7 @@ int main()
     if (ptr == NULL)
     {
         printf("\n Error! Memory not allocated!\n");
-        exit(1);
+        exit(1); // exit the program
     }
 
     
